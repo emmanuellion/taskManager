@@ -4,11 +4,39 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "electron": "npm run build && electron .",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "make": "electron-forge make",
+    "package": "electron-forge package"
   },
   "author": "Mabule",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^28.1.1"
+    "@electron-forge/cli": "^7.2.0",
+    "@electron-forge/maker-deb": "^7.2.0",
+    "@electron-forge/maker-rpm": "^7.2.0",
+    "@electron-forge/maker-squirrel": "^7.2.0",
+    "@electron-forge/maker-zip": "^7.2.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
+    "electron": "28.1.2"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
