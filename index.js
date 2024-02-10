@@ -11,7 +11,9 @@ const createWindow = () => {
     const win = new BrowserWindow({
         width: 800,
         height: 600,
-        icon: 'public/assets/logo/icon.png'
+        icon: 'public/assets/logo/icon.png',
+        center: true,
+        vibrancy: 'under-window'
     });
 
     const data = readFileSync(indexPath, 'utf-8');

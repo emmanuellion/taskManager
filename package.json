@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "electron": "npm run build && electron .",
+    "electron": "npm run build && npm run correction && electron .",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "make": "electron-forge make",
-    "package": "electron-forge package"
+    "package": "electron-forge package",
+    "correction": "node correction.js"
   },
   "author": "Mabule",
   "license": "ISC",
@@ -25,7 +26,8 @@
     "electron-squirrel-startup": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "sass": "^1.70.0"
   },
   "browserslist": {
     "production": [
