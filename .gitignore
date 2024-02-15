@@ -1,6 +1,14 @@
+# Modules
 node_modules
-.idea
-build
 .webpack
+
+# Build
+build
+dist
+out
+
+# Editor
+.idea
+
+# Divers
 test
-out/

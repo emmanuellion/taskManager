@@ -1,41 +1,47 @@
 const { app, BrowserWindow } = require('electron');
-const {readFileSync, writeFileSync} = require('fs');
 
 if (require('electron-squirrel-startup')) {
     app.quit();
 }
 
-const indexPath = "./build/index.html"
+let win;
 
 const createWindow = () => {
-    const win = new BrowserWindow({
+    win = new BrowserWindow({
         width: 800,
         height: 600,
         icon: 'public/assets/logo/icon.png',
         center: true,
-        vibrancy: 'under-window'
+        vibrancy: 'under-window',
+        webPreferences: {
+            nodeIntegration: true,
+        },
     });
 
-    const data = readFileSync(indexPath, 'utf-8');
-    if(data.indexOf("./static")){
-        const newData = data.replace('/static', './static');
-        writeFileSync(indexPath, newData, 'utf-8');
-    }
+    const startUrl = 'http://localhost:3000';
 
-    win.loadFile(indexPath).then(() => {
-        console.log("file loaded")
-    })
+    win.loadURL(startUrl);
+
+    win.on('closed', () => {
+        win = null;
+    });
+
+    // Add this line to allow communication between Electron and React
+    win.webContents.on('did-finish-load', () => {
+        win.webContents.send('electron-ready');
+    });
 }
 
-app.whenReady().then(() => {
-    createWindow()
-});
+app.on('ready', createWindow);
 
 app.on('window-all-closed', () => {
-    app.quit()
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
 });
 
 app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0)
+    if (win === null) {
         createWindow();
+    }
 });

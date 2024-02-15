@@ -1,26 +1,17 @@
 {
   "name": "taskmanager",
+  "author": "Mabule",
+  "license": "ISC",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "electron": "npm run build && npm run correction && electron .",
     "start": "react-scripts start",
+    "electron-start": "electron .",
     "build": "react-scripts build",
     "make": "electron-forge make",
-    "package": "electron-forge package",
-    "correction": "node correction.js"
-  },
-  "author": "Mabule",
-  "license": "ISC",
-  "devDependencies": {
-    "@electron-forge/cli": "^7.2.0",
-    "@electron-forge/maker-deb": "^7.2.0",
-    "@electron-forge/maker-rpm": "^7.2.0",
-    "@electron-forge/maker-squirrel": "^7.2.0",
-    "@electron-forge/maker-zip": "^7.2.0",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
-    "electron": "28.1.2"
+    "package": "electron-forge package"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
@@ -28,6 +19,15 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "sass": "^1.70.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.2.0",
+    "@electron-forge/maker-deb": "^7.2.0",
+    "@electron-forge/maker-rpm": "^7.2.0",
+    "@electron-forge/maker-squirrel": "^7.2.0",
+    "@electron-forge/maker-zip": "^7.2.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
+    "electron": "28.2.2"
   },
   "browserslist": {
     "production": [
